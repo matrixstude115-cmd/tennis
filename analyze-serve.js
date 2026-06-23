@@ -96,6 +96,8 @@ function extractFrameAtTime(videoPath, outputPath, timeSeconds) {
     ffmpeg(videoPath)
       .seekInput(timeSeconds)
       .frames(1)
+      .size("640x?")
+      .outputOptions(["-q:v", "5"])
       .output(outputPath)
       .on("end", resolve)
       .on("error", (err) => reject(new Error(`Frame extraction failed: ${err.message}`)))
