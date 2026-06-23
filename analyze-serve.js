@@ -142,7 +142,7 @@ function cleanupFrames(tmpDir) {
 // ── Claude API call ──────────────────────────────────────────────────────────
 
 async function analyzeFrames(base64Frames) {
-  const client = new Anthropic();
+  const client = new Anthropic({ defaultHeaders: { "Accept-Encoding": "identity" } });
 
   const imageContent = base64Frames.map((b64, i) => [
     {
