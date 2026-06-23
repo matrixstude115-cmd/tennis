@@ -1,6 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import ffmpeg from "fluent-ffmpeg";
 import ffmpegStatic from "ffmpeg-static";
+import ffprobeStatic from "ffprobe-static";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -13,6 +14,7 @@ const mkdir = promisify(fs.mkdir);
 // ── Config ──────────────────────────────────────────────────────────────────
 
 ffmpeg.setFfmpegPath(ffmpegStatic);
+ffmpeg.setFfprobePath(ffprobeStatic.path);
 
 const FRAME_COUNT = 6;
 const MODEL = "claude-sonnet-4-6";
