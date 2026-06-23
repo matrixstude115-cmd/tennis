@@ -1,0 +1,19 @@
+# Secrets
+.env
+
+# Dependencies
+node_modules/
+
+# Video files
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+
+# Temp frames
+.tmp-frames/
+
+# OS
+.DS_Store
+Thumbs.db
