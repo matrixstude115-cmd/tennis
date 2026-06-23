@@ -16,7 +16,7 @@ const mkdir = promisify(fs.mkdir);
 ffmpeg.setFfmpegPath(ffmpegStatic);
 ffmpeg.setFfprobePath(ffprobeStatic.path);
 
-const FRAME_COUNT = 4;
+const FRAME_COUNT = 6;
 const MODEL = "claude-sonnet-4-6";
 const RESULTS_DIR = path.join(__dirname, "results");
 
@@ -96,8 +96,8 @@ function extractFrameAtTime(videoPath, outputPath, timeSeconds) {
     ffmpeg(videoPath)
       .seekInput(timeSeconds)
       .frames(1)
-      .size("480x?")
-      .outputOptions(["-q:v", "8"])
+      .size("640x?")
+      .outputOptions(["-q:v", "5"])
       .output(outputPath)
       .on("end", resolve)
       .on("error", (err) => reject(new Error(`Frame extraction failed: ${err.message}`)))
